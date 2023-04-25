@@ -1,4 +1,4 @@
-import React, { Component, createContext, useContext } from 'react';
+import React, { Component, createContext, useContext, useReducer } from 'react';
 
 // GlobalContext creates the context
 const GlobalContext = createContext();
@@ -14,6 +14,7 @@ export const useGlobalContext = () => useContext(GlobalContext);
  */
 export const GlobalProvider = ({children}) => {
   const favoritedImages = [];
+
   return (
     <GlobalContext.Provider value={{ favoritedImages }}>
       {children}
