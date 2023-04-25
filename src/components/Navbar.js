@@ -25,7 +25,7 @@ export default function NavigationBar() {
           <Nav className="me-auto">
               <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              {categories.map((category) => <NavDropdown.Item as={Link} to={`/category/${category.slug}`} state={{slug: category.slug}}>{category.name}</NavDropdown.Item>)}
+              {categories.map((category, i) => <NavDropdown.Item key={`navBar-Category-${i}`} as={Link} to={`/category/${category.slug}`} state={{slug: category.slug}}>{category.name}</NavDropdown.Item>)}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

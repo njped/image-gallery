@@ -1,4 +1,10 @@
-import React, { Component, createContext, useContext, useReducer } from 'react';
+import React, { 
+  Component, 
+  createContext, 
+  useContext, 
+  useReducer 
+} from 'react';
+import { reducer } from './reducers';
 
 // GlobalContext creates the context
 const GlobalContext = createContext();
@@ -7,16 +13,18 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 /**
- * 
  * @prop {react-proop} children - is all the child components wrapped together within the context provider
  * @var {array} favoritedImages - variable that stores data of favorite images
  * @returns {Component} GlobalContext.Provider - allows any child components access the data in the value prop
  */
-export const GlobalProvider = ({children}) => {
-  const favoritedImages = [];
 
+export default function GlobalProvider({children}) {
+  const [state, dispatch] = useReducer(reducer, {
+    favoritedImages: []
+  })
+    
   return (
-    <GlobalContext.Provider value={{ favoritedImages }}>
+    <GlobalContext.Provider value={[state, dispatch]}>
       {children}
     </GlobalContext.Provider>
   );

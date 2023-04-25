@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { GlobalProvider } from './utils/globalContext.js';
+import GlobalProvider from './utils/globalContext.js';
 import NavigationBar from './components/Navbar.js'
 import Home from './components/Home.js'
 import Categories from './components/Categories.js'

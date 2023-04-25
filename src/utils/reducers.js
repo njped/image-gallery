@@ -13,12 +13,8 @@ export function reducer(state, action) {
         ]
       }
     case REMOVE_FAVORITE: 
-      return {
-        ...state,
-        favoritedImages: [
-          ...state.favoritedImages,
-        ].filter(img => !img.id === action.data.id)
-      }
+      const updatedFavImages = state.favoritedImages.filter((image) => image.id !== action.data.id)
+      return {...state, favoritedImages: [...updatedFavImages]}
     default: 
       return state
   }
