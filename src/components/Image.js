@@ -5,6 +5,7 @@ import './Image.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as heartSolid } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as heartRegular } from '@fortawesome/free-regular-svg-icons'
+import { json } from 'react-router-dom'
 
 
 export default function Image({ imgData, type = 'regular'}) {
@@ -17,6 +18,7 @@ export default function Image({ imgData, type = 'regular'}) {
       type: !isFavorite ? ADD_FAVORITE : REMOVE_FAVORITE,
       data: imgData
     })
+    localStorage.setItem('favImages', JSON.stringify([...state.favoritedImages, imgData]))
     setIsFavorite(!isFavorite)
   }
 

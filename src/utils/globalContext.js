@@ -19,10 +19,11 @@ export const useGlobalContext = () => useContext(GlobalContext);
  */
 
 export default function GlobalProvider({children}) {
+  const storeFav = JSON.parse(localStorage.getItem('favImages')) || []
   const [state, dispatch] = useReducer(reducer, {
-    favoritedImages: []
+    favoritedImages: storeFav
   })
-    
+    console.log(state)
   return (
     <GlobalContext.Provider value={[state, dispatch]}>
       {children}
