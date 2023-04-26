@@ -18,9 +18,3 @@ export default function Categories() {
     </>
   )
 }
-
-/*
-  Slugs that I will be using Wallpapers, Nature, Travel, Animals and Food & Drink
-  Use a case/if statement to change the state of the slug
-  Save the category in the slug variable
-*/

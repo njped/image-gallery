@@ -16,8 +16,18 @@ export default function Favorites() {
     <>
       {state.favoritedImages.length === 0 ? 
         (
-          <Container>
-            <h4 className='text-center p-3'>Oh, you haven't favorited any images! Go find some nice images in the <Link to='/'>Gallery</Link></h4>
+          <Container style={{
+            position: 'relative'
+          }}>
+            <h4 className='text-center p-3' style={{
+              margin: '0',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              marginRight: '-50%',
+              transform: 'translate(-50%, -50%)'
+            }}>
+              Oh, you haven't favorited any images! <br /> Go find some nice images in the <Link to='/'>Gallery</Link></h4>
           </Container>
         ) : (
         <Gallery page="favorites" />

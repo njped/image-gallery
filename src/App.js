@@ -7,6 +7,8 @@ import Home from './components/Home.js'
 import Categories from './components/Categories.js'
 import Favorites from './components/Favorites.js'
 import UhOh from './components/UhOh.js'
+import { Container } from 'react-bootstrap'
+
 
 /*
   Need to get photos from API -- https://unsplash.com/documentation
@@ -23,13 +25,15 @@ export default function App() {
   return (
     <GlobalProvider>
       <Router>
-        <NavigationBar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/category/:id" element={<Categories />} />
-          <Route path="*" element={<UhOh />} />
-        </Routes>
+        <Container fluid className='d-flex' style={{minHeight: '100vh', paddingTop: '60px'}}>
+          <NavigationBar />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/category/:id" element={<Categories />} />
+            <Route path="*" element={<UhOh />} />
+          </Routes>
+        </Container>
       </Router>
     </GlobalProvider>
   )
